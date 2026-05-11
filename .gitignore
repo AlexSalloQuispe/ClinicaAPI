@@ -1,0 +1,15 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+
+# Connection strings file (opcional, si quieres excluir appsettings.Development.json)
+appsettings.Development.json
