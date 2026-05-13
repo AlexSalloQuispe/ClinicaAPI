@@ -19,11 +19,14 @@ jobs:
       with:
         dotnet-version: '8.0.x'
 
-    - name: Restaurar dependencias
-      run: dotnet restore
+    - name: Restaurar dependencias proyecto principal
+      run: dotnet restore ClinicaAPI/ClinicaAPI.csproj
 
-    - name: Compilar proyecto
-      run: dotnet build --no-restore --configuration Release
+    - name: Restaurar dependencias proyecto de pruebas
+      run: dotnet restore ClinicaAPI.Tests/ClinicaAPI.Tests.csproj
+
+    - name: Compilar proyecto principal
+      run: dotnet build ClinicaAPI/ClinicaAPI.csproj --no-restore --configuration Release
 
     - name: Ejecutar pruebas unitarias
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test ClinicaAPI.Tests/ClinicaAPI.Tests.csproj --no-build --verbosity normal
