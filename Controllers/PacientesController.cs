@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ClinicaAPI.Data;
 using ClinicaAPI.Models;
+using System;  // Necesario para DateTime
 
 namespace ClinicaAPI.Controllers
 {
@@ -24,6 +25,9 @@ namespace ClinicaAPI.Controllers
         [HttpPost]
         public IActionResult Post(Paciente paciente)
         {
+            // Asignar la fecha actual automáticamente
+            paciente.FechaRegistro = DateTime.Now;
+
             _context.Pacientes.Add(paciente);
             _context.SaveChanges();
             return Ok(paciente);

@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,3 +24,6 @@ jobs:
 
     - name: Compilar proyecto
       run: dotnet build --no-restore --configuration Release
+
+    - name: Ejecutar pruebas unitarias
+      run: dotnet test --no-build --verbosity normal
